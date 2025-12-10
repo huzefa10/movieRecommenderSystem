@@ -1,0 +1,5 @@
+pip freeze > requirements.txt
+
+try other vectorizationa and tokenization techniqes
+
+try other similarity techniques
