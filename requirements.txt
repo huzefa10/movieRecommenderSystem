@@ -1,2 +1,6 @@
 streamlit
-request
+scikit-learn
+pandas
+numpy
+scipy
+
