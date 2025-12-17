@@ -6,12 +6,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 new_df = pd.read_csv('new_df.csv')
-cs = pickle.load(open('cos_similarity.pkl','rb'))
+cs_cv = pickle.load(open('cos_similarity.pkl','rb'))
+cs_cv1 = pickle.load(open('cos_similarity.pkl','rb'))
+cs_tfidf = pickle.load(open('cos_similarity.pkl','rb'))
+cs_tfidf = pickle.load(open('cos_similarity.pkl','rb'))
+cs_word2vec = pickle.load(open('cos_similarity.pkl','rb'))
 
-def reccomend(movie):
+def reccomend(movie, simi):
     movie_list= []
     index = new_df[new_df['title']==movie].index[0]
-    reccomend_movies = sorted(list(enumerate(cs[index])), reverse= True, key = lambda x: x[1])[1:6]
+    reccomend_movies = sorted(list(enumerate(simi[index])), reverse= True, key = lambda x: x[1])[1:6]
     for i, recc in reccomend_movies:
         movie_list.append(new_df['title'].iloc[i])
         # print(f"Movies: {new_df['title'].iloc[i]}\t Percentages of Matching: {(recc*100):.2f}%")

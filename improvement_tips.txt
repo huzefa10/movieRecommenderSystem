@@ -1,5 +1,6 @@
 pip freeze > requirements.txt
 
-try other vectorizationa and tokenization techniqes
+now try word2vec trained one
+try glove
 
 try other similarity techniques
